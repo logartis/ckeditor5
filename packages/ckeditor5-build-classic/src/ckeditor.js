@@ -30,11 +30,29 @@ import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
 import CloudServices from '@ckeditor/ckeditor5-cloud-services/src/cloudservices';
+import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';     // <--- ADDED
+import GeneralHtmlSupport from '@ckeditor/ckeditor5-html-support/src/generalhtmlsupport';
+import SourceEditing from '@ckeditor/ckeditor5-source-editing/src/sourceediting';
+import HorizontalLine from '@ckeditor/ckeditor5-horizontal-line/src/horizontalline';
 
-export default class ClassicEditor extends ClassicEditorBase {}
+// import ImageResizeEditing from '@ckeditor/ckeditor5-image/src/imageresize/imageresizeediting';
+// import ImageResizeHandles from '@ckeditor/ckeditor5-image/src/imageresize/imageresizehandles';
+// import ImageBlock from '@ckeditor/ckeditor5-image/src/imageblock';
+
+
+
+
+export default class ClassicEditor extends ClassicEditorBase { }
 
 // Plugins to include in the build.
 ClassicEditor.builtinPlugins = [
+	GeneralHtmlSupport,
+	SourceEditing,
+	Alignment,
+	HorizontalLine,
+	// ImageResizeEditing,
+	// ImageResizeHandles,
+	// ImageBlock,
 	Essentials,
 	UploadAdapter,
 	Autoformat,
@@ -67,6 +85,7 @@ ClassicEditor.defaultConfig = {
 		items: [
 			'heading',
 			'|',
+			'alignment',
 			'bold',
 			'italic',
 			'link',
@@ -76,12 +95,16 @@ ClassicEditor.defaultConfig = {
 			'outdent',
 			'indent',
 			'|',
+			'undo',
+			'redo',
+			'|',
+			'horizontalLine',
 			'uploadImage',
 			'blockQuote',
 			'insertTable',
 			'mediaEmbed',
-			'undo',
-			'redo'
+			'|',
+			'sourceEditing'
 		]
 	},
 	image: {

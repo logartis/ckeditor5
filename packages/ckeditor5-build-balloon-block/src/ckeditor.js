@@ -14,7 +14,7 @@ import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
 import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
 import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
 // import CKFinder from '@ckeditor/ckeditor5-ckfinder/src/ckfinder';
-import EasyImage from '@ckeditor/ckeditor5-easy-image/src/easyimage';
+// import EasyImage from '@ckeditor/ckeditor5-easy-image/src/easyimage';
 import Heading from '@ckeditor/ckeditor5-heading/src/heading';
 import Image from '@ckeditor/ckeditor5-image/src/image';
 import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption';
@@ -35,10 +35,14 @@ import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformatio
 
 import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';     // <--- ADDED
 import GeneralHtmlSupport from '@ckeditor/ckeditor5-html-support/src/generalhtmlsupport';
-import SourceEditing from '@ckeditor/ckeditor5-source-editing/src/sourceediting';
+// import SourceEditing from '@ckeditor/ckeditor5-source-editing/src/sourceediting';
 import HorizontalLine from '@ckeditor/ckeditor5-horizontal-line/src/horizontalline';
 import ImageInsert from '@ckeditor/ckeditor5-image/src/imageinsert';
 import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize';
+import ImageBlock from '@ckeditor/ckeditor5-image/src/imageblock';
+import HtmlEmbed from '@ckeditor/ckeditor5-html-embed/src/htmlembed';
+
+
 
 
 import '../theme/theme.css';
@@ -48,11 +52,11 @@ export default class BalloonEditor extends BalloonEditorBase { }
 // Plugins to include in the build.
 BalloonEditor.builtinPlugins = [
 	GeneralHtmlSupport,
-	SourceEditing,
+	// SourceEditing,
 	Alignment,
 	HorizontalLine,
-	ImageInsert,
-	ImageResize,
+	HtmlEmbed,
+	//
 	Essentials,
 	UploadAdapter,
 	Autoformat,
@@ -62,13 +66,19 @@ BalloonEditor.builtinPlugins = [
 	BlockQuote,
 	// CKFinder,
 	// CloudServices,
-	EasyImage,
+	// EasyImage,
 	Heading,
 	Image,
 	ImageCaption,
 	ImageStyle,
 	ImageToolbar,
 	ImageUpload,
+
+	//
+	ImageInsert,
+	ImageResize,
+	ImageBlock,
+	//
 	Indent,
 	Link,
 	List,
@@ -100,7 +110,7 @@ BalloonEditor.defaultConfig = {
 		'insertTable',
 		'mediaEmbed',
 		'|',
-		'sourceEditing'
+		'htmlEmbed'
 	],
 	toolbar: {
 		items: [
@@ -111,12 +121,32 @@ BalloonEditor.defaultConfig = {
 	},
 	image: {
 		toolbar: [
-			'imageStyle:inline',
-			'imageStyle:block',
-			'imageStyle:side',
-			'imageStyle:alignLeft',
-			'imageStyle:alignRight',
-			'|',
+			{
+				name: "semantical",
+				items: [
+					'imageStyle:inline',
+					'imageStyle:block',
+					'imageStyle:side',
+				],
+				defaultItem: 'imageStyle:inline'
+			},
+			{
+				name: "presentational",
+				items: [
+					'imageStyle:alignLeft',
+					'imageStyle:alignRight',
+				],
+				defaultItem: 'imageStyle:alignLeft'
+			},
+			{
+				name: "presentational2",
+				items: [
+					'imageStyle:alignBlockLeft',
+					'imageStyle:alignBlockRight',
+					'imageStyle:alignCenter',
+				],
+				defaultItem: 'imageStyle:alignBlockLeft'
+			},
 			'toggleImageCaption',
 			'imageTextAlternative',
 			'resizeImage'
@@ -142,6 +172,9 @@ BalloonEditor.defaultConfig = {
 			name: 'resizeImage:75',
 			value: '100'
 		}]
+	},
+	htmlEmbed: {
+		showPreviews: true,
 	},
 	table: {
 		contentToolbar: [

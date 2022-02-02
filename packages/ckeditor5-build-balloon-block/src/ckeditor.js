@@ -119,6 +119,13 @@ BalloonEditor.defaultConfig = {
 			'link'
 		]
 	},
+	alignment: {
+		options: [
+			{ name: 'left', className: 'env-align-left' },
+			{ name: 'right', className: 'env-align-right' },
+			{ name: 'center', className: 'env-align-center' }
+		]
+	},
 	image: {
 		toolbar: [
 			{
@@ -185,11 +192,27 @@ BalloonEditor.defaultConfig = {
 	},
 	heading: {
 		options: [
-			{ model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
-			{ model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
-			{ model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' },
-			{ model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_heading3' },
-			{ model: 'heading4', view: 'h4', title: 'Heading 4', class: 'ck-heading_heading4' },
+			{ model: 'paragraph', title: 'Paragraph 1', class: 'env-p1' },
+			{
+				model: 'smallParagraph1',
+				view: {
+					name: 'p',
+					classes: 'env-p2'
+				}
+				, title: 'Paragraph 2', class: 'env-p2'
+			},
+			{
+				model: 'smallParagraph2',
+				view: {
+					name: 'p',
+					classes: 'env-p3'
+				}
+				, title: 'Paragraph 3', class: 'env-p3'
+			},
+			{ model: 'heading1', view: 'h1', title: 'Heading 1', class: 'env-h1' },
+			{ model: 'heading2', view: 'h2', title: 'Heading 2', class: 'env-h2' },
+			{ model: 'heading3', view: 'h3', title: 'Heading 3', class: 'env-h3' },
+			{ model: 'heading4', view: 'h4', title: 'Heading 4', class: 'env-h4' },
 			// { model: 'heading5', view: 'h5', title: 'Heading 5', class: 'ck-heading_heading5' },
 			// { model: 'heading6', view: 'h6', title: 'Heading 6', class: 'ck-heading_heading6' }
 		]

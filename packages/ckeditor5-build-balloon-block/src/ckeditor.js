@@ -41,6 +41,7 @@ import ImageInsert from '@ckeditor/ckeditor5-image/src/imageinsert';
 import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize';
 import ImageBlock from '@ckeditor/ckeditor5-image/src/imageblock';
 import HtmlEmbed from '@ckeditor/ckeditor5-html-embed/src/htmlembed';
+import Font from '@ckeditor/ckeditor5-font/src/font';
 
 
 
@@ -64,6 +65,7 @@ BalloonEditor.builtinPlugins = [
 	Bold,
 	Italic,
 	BlockQuote,
+	Font,
 	// CKFinder,
 	// CloudServices,
 	// EasyImage,
@@ -95,6 +97,9 @@ BalloonEditor.defaultConfig = {
 	blockToolbar: [
 		'heading',
 		'|',
+		'fontSize',
+		'fontColor',
+		'fontBackgroundColor',
 		'alignment',
 		'bulletedList',
 		'numberedList',

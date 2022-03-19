@@ -47,6 +47,7 @@ import Font from '@ckeditor/ckeditor5-font/src/font';
 
 
 import '../theme/theme.css';
+import { colors } from "./colors";
 
 export default class BalloonEditor extends BalloonEditorBase { }
 
@@ -221,6 +222,14 @@ BalloonEditor.defaultConfig = {
 			// { model: 'heading5', view: 'h5', title: 'Heading 5', class: 'ck-heading_heading5' },
 			// { model: 'heading6', view: 'h6', title: 'Heading 6', class: 'ck-heading_heading6' }
 		]
+	},
+	fontColor: {
+		colors,
+		columns: 9
+	},
+	fontBackgroundColor: {
+		colors,
+		columns: 9
 	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
 	language: 'en'
